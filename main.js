@@ -340,7 +340,7 @@ var neighbor_int = function (hash_int, direction, bitDepth) {
  * @param {String} hash_string
  * @returns {encoded neighborHashList|Array}
  */
-var neighbors = function (hash_string) {
+var neighbors = function (hash_string, level) {
 
     var hashstringLength = hash_string.length;
 
@@ -354,14 +354,14 @@ var neighbors = function (hash_string) {
         neighbor_lon;
 
     var neighborHashList = [
-                            encodeNeighbor(1,0),
-                            encodeNeighbor(1,1),
-                            encodeNeighbor(0,1),
-                            encodeNeighbor(-1,1),
-                            encodeNeighbor(-1,0),
-                            encodeNeighbor(-1,-1),
-                            encodeNeighbor(0,-1),
-                            encodeNeighbor(1,-1)
+                            encodeNeighbor(level,0),
+                            encodeNeighbor(level,level),
+                            encodeNeighbor(0,level),
+                            encodeNeighbor(-level,level),
+                            encodeNeighbor(-level,0),
+                            encodeNeighbor(-level,-level),
+                            encodeNeighbor(0,-level),
+                            encodeNeighbor(level,-level)
                             ];
 
     function encodeNeighbor(neighborLatDir, neighborLonDir){
